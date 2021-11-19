@@ -17,14 +17,18 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	//CREATE THE OBJECT (STEP 1)
 	Background 	bg 	= new Background(0, 0);
+	Square square = new Square(0, 0);
 
-
+	
+	
+	
+	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
 
 	}
-	//lmao commit
+	
 	public static void main(String[] arg) {
 		Frame f = new Frame();
 	}

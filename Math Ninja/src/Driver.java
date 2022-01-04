@@ -86,7 +86,7 @@ public class Driver extends JPanel implements ActionListener, MouseListener, Key
 				}
 				// print score
 				g.setColor(Color.RED);
-				g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
+				g.setFont(new Font("Stencil", Font.PLAIN, 50));
 				g.drawString("SCORE: " + score, 100, 100);
 
 			}

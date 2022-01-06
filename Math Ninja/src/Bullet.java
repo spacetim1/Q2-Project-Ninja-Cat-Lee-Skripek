@@ -20,7 +20,6 @@ public class Bullet {
 	public int x, y; //position of the bullet
 	public int w=10, h=10;
 	private Image img; 	
-	//private int vx = 0; //velocity in x
 	private AffineTransform tx;
 	public Rectangle hitbox; //bullet hitbox
 	public boolean mouseClicked;
@@ -47,8 +46,7 @@ public class Bullet {
 		//call update to update the actual picture location
 		update(mx, my);
 		g2.drawImage(img, tx, null);
-		//hitbox
-		//g.drawRect(x, y, w, h);
+
 		
 
 	}
@@ -57,40 +55,32 @@ public class Bullet {
 		int smaller, deltax, deltay, incx, incy, minspeed = 7;
 		
 
-		// calculate x (horizontal) distance from the original bullet location to the mouse click
+		//calculate x (horizontal) distance from the original bullet location to the mouse click
 		deltax =  mx - x;
-		// calculate y (vertical) distance from the original bullet location to the mouse click
+		//calculate y (vertical) distance from the original bullet location to the mouse click
 		deltay =  my - y;
-		// check which distance is smaller
-		// y can be negative while x is always positive
+		//check which distance is smaller
+		//y can be negative while x is always positive
 		if (deltax < Math.abs(deltay)) {
 			smaller = deltax;
 		}
 		else {
 			smaller = Math.abs(deltay);  // smaller has to be a positive value
 		}
-		// determine increment for x, y position for the bullet by dividing deltax and deltay by whichever is smaller
+		//determine increment for x, y position for the bullet by dividing deltax and deltay by whichever is smaller
 		incx = deltax/smaller;  
 		incy = deltay/smaller;
 		
-		if (incx < minspeed) {  // if x increment is too small (too slow), increase speed
+		if (incx < minspeed) {  //if x increment is too small (too slow), increase speed
 			
-			if(incy < minspeed && incy > -minspeed) { // if increment y is too small (absolute value of incy is less than minspeed)
+			if(incy < minspeed && incy > -minspeed) { //if increment y is too small (absolute value of incy is less than minspeed)
 				incx *= minspeed;
 				incy *= minspeed;
 			} 
-			/*
-			if (incy > 0 && incy < minspeed) {  // if deltay is positive (mouse is bellow bullet)
-				incx *= minspeed;
-				incy *= minspeed;
-			} else if (incy < 0 && incy > -minspeed) { // if deltay is negative (mouse is above bullet)
-				incx *= minspeed;
-				incy *= minspeed;
-			}
-			*/
+
 		}
 		
-		//the x & y positions of the bullet is moving incrementally based on the calculations above
+		//the x & y positions of the bullet are moving incrementally based on the calculations above
 		x += incx;
 		y += incy;
 		
@@ -111,17 +101,7 @@ public class Bullet {
 			y=my;
 			mouseClicked = false;
 		}
-		/*
-		if(mx == x) {
-			mouseClicked = false;  // bullet reached the target mouse position so reset the bullet position
-		}
-		else if (x > mx) {  // bullet went over the target, so adjust the bullet position to target and reset
-			x = mx;
-			y = my;			
-			mouseClicked = false;
-		}
-	
-		*/
+
 	}
 	
 	/* update the picture variable location */

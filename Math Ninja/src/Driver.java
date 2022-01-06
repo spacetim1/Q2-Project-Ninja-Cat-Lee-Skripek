@@ -35,12 +35,10 @@ public class Driver extends JPanel implements ActionListener, MouseListener, Key
 	//mouse position
 	private int mx;
 	private int my;
-
-	//int xr = (int) ((Math.random() * (xmax-xmin))+xmin);
-	//int yr = (int) ((Math.random() * (ymax-ymin))+ymin);
+	private int musicWaitTime = 0;
 	//objects instantiated
 	Cat cat = new Cat(20, 200);
-	// initial bullet position
+	//initial bullet position
 	int initx = 80, inity = 240;
 	Bullet bullet = new Bullet(initx, inity);
 	//background
@@ -97,21 +95,28 @@ public class Driver extends JPanel implements ActionListener, MouseListener, Key
 		cat.paint(g);
 		}
 		else if (lostGame) {	
-			//you lost font
+			//you lost
 			g.setColor(Color.RED);
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 			g.drawString("You Lost!", 300, 300);
-			musicSpawn1.play();
+			musicWaitTime ++;
+			if(musicWaitTime == 5) {
+				musicSpawn1.play();
+			}
+
 			//System.out.println("You lost!");
 
 		}
 		if (score == winscore) {
-			//you won font
+			//you won
 			//System.out.println("You Won! Score = "+score);
 			g.setColor(Color.RED);
 			g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
 			g.drawString("You Won!", 300, 300);
-			musicSpawn2.play();
+			musicWaitTime ++;
+			if(musicWaitTime == 5) {
+				musicSpawn2.play();
+			}
 		}
 	
 		

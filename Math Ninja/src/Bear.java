@@ -42,8 +42,7 @@ public class Bear {
 		//call update to update the actual picture location
 		update();
 		g2.drawImage(img, tx, null);
-		//hitbox
-		//g.drawRect(x, y, w, h);
+
 		
 
 	}

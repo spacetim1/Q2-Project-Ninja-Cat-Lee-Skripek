@@ -19,9 +19,18 @@
 ### The Driver class is the class which contains all the objects from other classes. It is the so-called "play area" of the game.
 
 ## Bear
-### The Bear class contains the object bear, who is the antagonist of the game. They are programmed to spawn somewhere on the right side of the field and head towards you in order to kill you.
+### The Bear class contains the object bear, who is the antagonist of the game. They are programmed to spawn somewhere on the right side of the field and head towards you in order to kill you. The bear image is taken from the internet.
 ###### When the red bullet comes into contact with a bear's hitbox, a collide method is called upon to kill the bear and reset its position to the right side of the screen, where is it randomly generated to appear again past an x (outside of the frame, to the very right) coordinate, to come after the cat once again. This method also has a noice indication that a bear was hit. When one of the bears passes the cat's x (all the way to the left), the game ends and you lose.
 
 ## Bullet
 ### The Bullet class contains the magical red bullet, which is used to kill the oncoming horde.
 ###### The trickiest part of the game was coding the bullet's shooting ability. It requires usage of math and geometry. Think of the frame area as a graph. The bullet's original position is the first point and whereever the mouse pointer is when it is clicked is the second point. Using the two points you can create a linear line. That linear line has a slope, that is as y changes, x changes along with it. So to move the bullet we calculate how much its y should move and how much its x should move using the position of the mouse pointer and the bullet. Then we make the bullet move by that increment. A minor problem pops up sometimes, however, the bullet is too slow in some areas due to the position of the mouse pointer compared to the bullet. To solve this, we multiply that slow, original increment by a minimum speed so that it will always stay above a certain level and not be impossible to win.
+
+## Background
+### The Background class consists of the image for the background for the game.
+
+## Cat
+### The Cat class contains the player, the cat, well essentially just the image of the cat as he basically is not interactable in the game, he is just there. The image is taken from scratch. 
+
+## Music
+### The Music class is a class that is required to play music in the game. It allows the method music.play() to play a sound effect.
